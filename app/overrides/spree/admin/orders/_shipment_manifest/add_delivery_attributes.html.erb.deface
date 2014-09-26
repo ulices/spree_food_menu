@@ -1,0 +1,6 @@
+<!-- insert_after 'td.item-total' -->
+<td>
+  <%= display_delivery_type item.line_item.delivery_type %>
+  <%= display_delivery_time item.line_item.delivery_time %>
+</td>
+
