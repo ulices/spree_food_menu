@@ -2,7 +2,7 @@ module Spree
   module Admin
     OrdersHelper.module_eval do
       def display_delivery_type type
-        delivery_types = { 1 => 'delivery', 2 => 'delivery later', 3 => 'not delivery' }
+        delivery_types = { 1 => 'sale on store', 2 => 'delivery to home', 3 => 'scheduled to get on store' }
         delivery_types[type] || 'not asigned'
       end
 

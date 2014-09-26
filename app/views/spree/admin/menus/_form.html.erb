@@ -1,0 +1,25 @@
+<div class="align-center row">
+  <div class="alpha eight columns">
+    <%= f.field_container :version do %>
+      <%= f.label :version %><span class="required">*</span><br />
+      <%= f.number_field :version, :class => "fullwidth" %>
+      <%= f.error_message_on :version %>
+    <% end %>
+  </div>
+
+  <div class="alpha four columns">
+    <%= f.field_container :start_date do %>
+      <%= f.label :start_date %><span class="required">*</span><br />
+      <%= f.date_field :start_date, :class => "fullwidth" %>
+      <%= f.error_message_on :start_date %>
+    <% end %>
+  </div>
+
+  <div class="alpha four columns">
+    <%= f.field_container :end_date do %>
+      <%= f.label :end_date %><span class="required">*</span><br />
+      <%= f.date_field :end_date, :class => "fullwidth" %>
+      <%= f.error_message_on :end_date %>
+    <% end %>
+  </div>
+</div>

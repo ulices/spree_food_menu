@@ -1,0 +1,34 @@
+<%= content_for :page_title do %>
+  <%= Spree.t(:food_menu) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li>
+    <%= button_link_to Spree.t(:new_menu), new_admin_menu_url, :icon => 'plus', :id => 'admin_new_menu' %>
+  </li>
+<% end if can? :edit, Spree::Menu.new %>
+
+<div class='columns.twelve'>
+  <table>
+    <thead>
+      <tr>
+        <th><%= Spree.t(:version) %></th>
+        <th><%= Spree.t(:start_date) %></th>
+        <th><%= Spree.t(:end_date) %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%- @menus.each do |menu| %>
+        <tr>
+          <td><%= menu.version %></td>
+          <td><%= menu.start_date %></td>
+          <td><%= menu.end_date %></td>
+          <td class='actions'>
+            <%= link_to_edit menu, :no_text => true, :class => 'edit' %>
+            <%= link_to_delete menu, :no_text => true %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

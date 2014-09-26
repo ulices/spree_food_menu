@@ -3,3 +3,11 @@
 
 en:
   hello: "Hello world"
+  spree:
+    monday: Monday
+    thuesday: Thuesday
+    wendsday: Wendsday
+    tursday: Tursday
+    friday: Friday
+    saturday: Saturday
+    sunday: Sunday
