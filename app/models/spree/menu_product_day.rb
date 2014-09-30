@@ -3,8 +3,9 @@ module Spree
     belongs_to :menu
     belongs_to :product
 
+    delegate :name, to: :product
+
     scope :products_of_the_day, ->(date) { where(day: date) }
 
-    delegate :name, to: :product
   end
 end
