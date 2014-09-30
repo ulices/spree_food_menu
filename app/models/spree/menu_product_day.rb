@@ -4,5 +4,7 @@ module Spree
     belongs_to :product
 
     scope :products_of_the_day, ->(date) { where(day: date) }
+
+    delegate :name, to: :product
   end
 end

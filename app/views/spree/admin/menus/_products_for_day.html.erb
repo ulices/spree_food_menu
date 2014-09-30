@@ -1,0 +1,21 @@
+<div id="menu-day-<%= date.strftime('%A') %>" class='row'>
+    <div class='alpha columns select-product'>
+      <%= select_tag 'product_id',
+        options_from_collection_for_select(@products ||= Spree::Product.active.uniq, :id, :name),
+        class: 'select2 fullwidth' %>
+      <%= hidden_field :menu, :id,value: menu_id %>
+      <%= hidden_field :day, :date,value: date %>
+    </div>
+
+    <div class="form-buttons filter-actions actions" data-hook="buttons">
+      <%= link_to Spree.t(:add), '#', id: "#{date.strftime('%A')}", class: 'add-product-to-menu' %>
+    </div>
+</div>
+
+<div class='row'>
+  <ol id="products-for-<%= date.strftime('%A') %>" class='alpha three columns daily-products'>
+    <%- products.each do |product| %>
+      <li><%= product.name %></li>
+    <% end %>
+  </ol>
+</div>

@@ -7,7 +7,7 @@
 
     <%= render partial: 'spree/admin/menus/form', locals: { f: f } %>
 
-    <%= render partial: 'spree/admin/menus/daily_products', locals: { start_date: @menu.start_date, end_date: @menu.end_date } %>
+    <%= render partial: 'spree/admin/menus/daily_products', locals: { week: @menu.dates_of_the_week } %>
 
     <%= render partial: 'spree/admin/shared/new_resource_links' %>
 

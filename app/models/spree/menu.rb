@@ -12,6 +12,10 @@ module Spree
       week_menu
     end
 
+    def dates_of_the_week
+      (start_date..end_date).map{|date| date }
+    end
+
     def products_for day
       products_of_the_day day
     end

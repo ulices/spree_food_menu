@@ -1,18 +1,65 @@
-<table>
+<table class='week'>
   <thead>
     <tr>
-      <th><%= "#{Spree.t(:monday)} - " %></th>
-      <th><%= "#{Spree.t(:thuesday)} - " %></th>
-      <th><%= "#{Spree.t(:wendsday)} - " %></th>
-      <th><%= "#{Spree.t(:tursday)} - " %></th>
-      <th><%= "#{Spree.t(:friday)} - " %></th>
-      <th><%= "#{Spree.t(:saturday)} - " %></th>
-      <th><%= "#{Spree.t(:sunday)} - " %></th>
+      <th><%= "#{Spree.t(:monday)} - #{week[0]}" %></th>
+      <th><%= "#{Spree.t(:tuesday)} - #{week[1]}" %></th>
+      <th><%= "#{Spree.t(:wednesday)} - #{week[2]}" %></th>
+      <th><%= "#{Spree.t(:thursday)} - #{week[3]}" %></th>
+      <th><%= "#{Spree.t(:friday)} - #{week[4]}" %></th>
+      <th><%= "#{Spree.t(:saturday)} - #{week[5]}" %></th>
+      <th><%= "#{Spree.t(:sunday)} - #{week[6]}" %></th>
     </tr>
   </thead>
   <tbody>
-    <%= %>
     <tr>
+      <th class='monday'>
+        <%= render partial: 'spree/admin/menus/products_for_day', locals: {
+          products: @menu.products_for(week[0]),
+          date: week[0],
+          menu_id: @menu.id } %>
+      </th>
+      <th class='tuesday'>
+        <%= render partial: 'spree/admin/menus/products_for_day', locals: {
+          products: @menu.products_for(week[1]),
+          date: week[1],
+          menu_id: @menu.id } %>
+      </th>
+      <th class='wednesday'>
+        <%= render partial: 'spree/admin/menus/products_for_day', locals: {
+          products: @menu.products_for(week[2]),
+          date: week[2],
+          menu_id: @menu.id } %>
+      </th>
+      <th class='thursday'>
+        <%= render partial: 'spree/admin/menus/products_for_day', locals: {
+          products: @menu.products_for(week[3]),
+          date: week[3],
+          menu_id: @menu.id } %>
+      </th>
+      <th class='friday'>
+        <%= render partial: 'spree/admin/menus/products_for_day', locals: {
+          products: @menu.products_for(week[4]),
+          date: week[4],
+          menu_id: @menu.id } %>
+      </th>
+      <th class='saturday'>
+        <%= render partial: 'spree/admin/menus/products_for_day', locals: {
+          products: @menu.products_for(week[5]),
+          date: week[5],
+          menu_id: @menu.id } %>
+      </th>
+      <th class='sunday'>
+        <%= render partial: 'spree/admin/menus/products_for_day', locals: {
+          products: @menu.products_for(week[6]),
+          date: week[6],
+          menu_id: @menu.id } %>
+      </th>
     </tr>
   </tbody>
 </table>
+
+<%= javascript_tag do %>
+  $(document).ready(function() {
+    new menuProductApp.ProductDay();
+  });
+<% end%>
