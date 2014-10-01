@@ -14,7 +14,9 @@ module Spree
       week_menu = {}
 
       dates_of_the_week.each do |date|
+        products = products_for(date)
         week_menu[date.wday] = { date: date, products: products_for(date) }
+        week_menu[date.wday][:total_count] = products.size
       end
       week_menu
     end
