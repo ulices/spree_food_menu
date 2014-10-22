@@ -21,6 +21,15 @@ module Spree
       week_menu
     end
 
+    def menu_of_the_day
+      day_menu = {}
+      date = Date.today
+      products = products_for(date)
+      day_menu[date.wday] = { date: date, products: products }
+      day_menu[date.wday][:total_count] = products.count
+      day_menu
+    end
+
     def products_for day
       products_of_the_day(day).map(&:product)
     end
