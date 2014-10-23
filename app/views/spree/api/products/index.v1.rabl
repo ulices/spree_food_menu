@@ -7,6 +7,7 @@ all_categories = Spree::Taxon.categories
   child(menu_day[:products] => menu_day[:date]) do
     extends "spree/api/products/show"
   end
+  node(:menu_id) { menu_day[:id] }
 end
 
 node(:total_count){ total_count }

@@ -25,7 +25,7 @@ module Spree
       day_menu = {}
       date = Date.today
       products = products_for(date)
-      day_menu[date.wday] = { date: date, products: products }
+      day_menu[date.wday] = { date: date, products: products, id: id }
       day_menu[date.wday][:total_count] = products.count
       day_menu[date.wday][:categories] = Spree::Taxon.all
 
