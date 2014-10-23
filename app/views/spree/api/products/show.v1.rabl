@@ -9,3 +9,6 @@ child :master => :master do
   extends "spree/api/variants/small"
 end
 
+child :taxons => :categories do
+  extends "spree/api/taxons/show"
+end
