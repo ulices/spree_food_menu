@@ -10,6 +10,6 @@ Spree::Api::ProductsController.class_eval do
   private
 
   def select_active_menu
-    @active_menu ||= Spree::Menu.active_menu.first || Spree::Menu.first
+    @active_menu ||= Spree::Menu.active_menus.first || Spree::Menu.first
   end
 end

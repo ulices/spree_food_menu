@@ -4,7 +4,7 @@ module Spree
 
     delegate :products_of_the_day, to: :menu_product_days
 
-    scope :active_menu, -> { where(start_date: Date.today.beginning_of_week) }
+    scope :active_menus, -> { where(start_date: Date.today.beginning_of_week) }
 
     def dates_of_the_week
       (start_date..end_date).map{|date| date }
