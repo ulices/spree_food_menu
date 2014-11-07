@@ -22,14 +22,15 @@ module Spree
     end
 
     def menu_of_the_day
-      day_menu = {}
-      date = Date.today
-      products = products_for(date)
-      day_menu[date.wday] = { date: date, products: products, id: id }
-      day_menu[date.wday][:total_count] = products.count
-      day_menu[date.wday][:categories] = Spree::Taxon.all
+      today = Date.today
+      products = products_for(today)
 
-      day_menu
+      menu = {}
+      menu[today.wday] = { date: today, products: products, id: id }
+      menu[today.wday][:total_count] = products.count
+      menu[today.wday][:categories] = Spree::Taxon.all
+
+      menu
     end
 
     def products_for day

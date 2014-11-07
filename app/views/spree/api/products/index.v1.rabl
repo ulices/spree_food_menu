@@ -10,5 +10,5 @@ all_categories = Spree::Taxon.categories
   node(:menu_id) { menu_day[:id] }
 end
 
-node(:total_count){ total_count }
-node(:categories){ all_categories }
+node(:total_count) { total_count }
+node(:categories) { all_categories }
