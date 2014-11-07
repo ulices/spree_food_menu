@@ -1,7 +1,14 @@
 object false
 
 total_count = 0
-all_categories = Spree::Taxon.categories
+all_categories = Spree::Taxon.categories.where.not(name: ['Desayuno', 'Cafe'])
+coffee_category = Spree::Taxon.find_by(name: 'Cafe')
+breakfast_category = Spree::Taxon.find_by(name: 'Desayuno')
+all_categories.unshift(coffee_category) if coffee_category
+all_categories.unshift(breakfast_category) if breakfast_category
+
+node(:categories) { all_categories }
+
 @menu_products.each do |index, menu_day|
   total_count += menu_day[:total_count]
   child(menu_day[:products] => menu_day[:date]) do
@@ -11,4 +18,3 @@ all_categories = Spree::Taxon.categories
 end
 
 node(:total_count) { total_count }
-node(:categories) { all_categories }
