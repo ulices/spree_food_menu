@@ -9,6 +9,7 @@ module Spree
     delegate :name, to: :product
 
     scope :products_of_the_day, ->(date) { where(day: date) }
+    scope :menu_products, ->(menu) { where(menu_id: menu) }
 
     private
 

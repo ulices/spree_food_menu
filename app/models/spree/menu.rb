@@ -2,7 +2,7 @@ module Spree
   class Menu < Spree::Base
     has_many :menu_product_days
 
-    delegate :products_of_the_day, to: :menu_product_days
+    delegate :products_of_the_day, :menu_products, to: :menu_product_days
 
     scope :active_menus, -> { where(start_date: Date.today.beginning_of_week) }
 
@@ -33,8 +33,24 @@ module Spree
       menu
     end
 
+    def products
+      today = Date.today
+      products = products_for_menu(id)
+
+      menu = {}
+      menu[today.wday] = { date: today, products: products, id: id }
+      menu[today.wday][:total_count] = products.count
+      menu[today.wday][:categories] = Spree::Taxon.all
+
+      menu
+    end
+
     def products_for day
       products_of_the_day(day).map(&:product)
+    end
+
+    def products_for_menu(id)
+      menu_products(id).map(&:product).uniq
     end
   end
 end
