@@ -7,7 +7,9 @@ breakfast_category = Spree::Taxon.find_by(name: 'Desayuno')
 all_categories.unshift(coffee_category) if coffee_category
 all_categories.unshift(breakfast_category) if breakfast_category
 
-node(:categories) { all_categories }
+child(all_categories => :categories) do
+  extends "spree/api/taxons/small"
+end
 
 @menu_products.each do |index, menu_day|
   total_count += menu_day[:total_count]

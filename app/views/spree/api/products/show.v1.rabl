@@ -1,14 +1,12 @@
 object @product
 cache [I18n.locale, @current_user_roles.include?('admin'), current_currency, root_object]
 
-attributes *product_attributes
+attributes :id, :name, :total_on_hand, :available_on
 
-node(:display_price) { |p| p.display_price.to_s }
-
-child :master => :master do
+child master: :master do
   extends "spree/api/variants/small"
 end
 
-child :taxons => :categories do
-  extends "spree/api/taxons/show"
+child taxons: :categories do
+  extends "spree/api/taxons/small"
 end
