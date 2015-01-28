@@ -1,0 +1,8 @@
+<!-- insert_after "[data-hook='admin_product_form_available_on']" -->
+
+<div data-hook='admin_product_form_availability'>
+  <%= f.field_container :available do %>
+    <%= f.label :availability, Spree.t(:available?) %>
+    <%= f.check_box :available %>
+  <% end %>
+</div>

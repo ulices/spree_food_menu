@@ -1,7 +1,7 @@
 object @product
 cache [I18n.locale, @current_user_roles.include?('admin'), current_currency, root_object]
 
-attributes :id, :name, :total_on_hand, :available_on
+attributes :id, :name, :total_on_hand, :available_on, :available
 
 child master: :master do
   extends "spree/api/variants/small"
