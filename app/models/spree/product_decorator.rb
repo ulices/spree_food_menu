@@ -7,4 +7,6 @@ Spree::Product.class_eval do
     self.available_from = '08:00' if self.available_from.nil?
     self.available_to = '18:00' if self.available_to.nil?
   end
+
+  Spree::PermittedAttributes.product_attributes.push << [:available_from, :available_to]
 end
